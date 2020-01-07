@@ -32,7 +32,7 @@ const Header = () => {
 		if (e.key == 0) {
 			Router.push('/')
 		} else {
-			Router.push('/list/?id=' + e.key)
+			Router.push('/list?id=' + e.key)
 		}
 	}
 

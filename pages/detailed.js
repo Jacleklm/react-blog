@@ -1,3 +1,4 @@
+import '../public/style/pages/detailed.css'
 import Head from 'next/head'
 import { Row, Col, Icon, Breadcrumb, Affix } from 'antd'
 // import ReactMarkdown from 'react-markdown'
@@ -14,9 +15,9 @@ import hljs from 'highlight.js';
 import 'highlight.js/styles/monokai-sublime.css';
 import Tocify from '../components/tocify.tsx'
 import  servicePath  from '../config/apiUrl'
-import '../public/style/pages/detailed.css'
 
 const Detailed = (props) => {
+	const [ mylist , setMylist ] = useState(props)
 
 	const tocify = new Tocify()
 	// marked相应配置
@@ -40,8 +41,7 @@ const Detailed = (props) => {
     }
 	}); 
 	// 把文章内容用marked()进行渲染
-	let html = marked(props.article_content)
-	// const [ mylist , setMylist ] = useState(props)
+	let html = marked( mylist.article_content )
 
 	return (
 		<div>
@@ -62,16 +62,16 @@ const Detailed = (props) => {
 							</Breadcrumb>
 						</div>
 						<div>
-							<div className="detailed-title">{ props.title }</div>
+							<div className="detailed-title">{ mylist.title }</div>
 							<div className="list-icon center">
 								<span>
-									<Icon type="calendar" /> { props.addTime }
+									<Icon type="calendar" /> { mylist.addTime }
 								</span>
 								<span>
-									<Icon type="folder" /> { props.typeName }
+									<Icon type="folder" /> { mylist.typeName }
 								</span>
 								<span>
-									<Icon type="fire" /> { props.view_count }人
+									<Icon type="fire" /> { mylist.view_count }人
 								</span>
 							</div>
 
