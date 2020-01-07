@@ -6,17 +6,26 @@ import Header from '../components/Header'
 import Author from '../components/Author'
 import Advert from '../components/Advert'
 import Footer from '../components/Footer'
-import '../public/style/pages/detailed.css'
-import MarkNav from 'markdown-navbar'
+// import MarkNav from 'markdown-navbar'
 import 'markdown-navbar/dist/navbar.css'
 import axios from 'axios'
 import marked from 'marked'
 import hljs from 'highlight.js';
 import 'highlight.js/styles/monokai-sublime.css';
+import Tocify from '../components/tocify.tsx'
+import  servicePath  from '../config/apiUrl'
+import '../public/style/pages/detailed.css'
 
 const Detailed = (props) => {
+
+	const tocify = new Tocify()
 	// marked相应配置
 	const renderer = new marked.Renderer();
+	// 重新定义对#这种标签的解析
+	renderer.heading = function(text, level, raw) {
+		const anchor = tocify.add(text, level);
+		return `<a id="${anchor}" href="#${anchor}" class="anchor-fix"><h${level}>${text}</h${level}></a>\n`;
+	};
 	marked.setOptions({
     renderer: renderer, // 这个是必须填写的，你可以通过自定义的Renderer渲染出自定义的格式
     gfm: true, // 启动类似Github样式的Markdown,填写true或者false
@@ -32,7 +41,7 @@ const Detailed = (props) => {
 	}); 
 	// 把文章内容用marked()进行渲染
 	let html = marked(props.article_content)
-	const [ mylist , setMylist ] = useState(props)
+	// const [ mylist , setMylist ] = useState(props)
 
 	return (
 		<div>
@@ -52,18 +61,17 @@ const Detailed = (props) => {
 								<Breadcrumb.Item>xxxx</Breadcrumb.Item>
 							</Breadcrumb>
 						</div>
-
 						<div>
-							<div className="detailed-title">{ mylist.title }</div>
+							<div className="detailed-title">{ props.title }</div>
 							<div className="list-icon center">
 								<span>
-									<Icon type="calendar" /> { mylist.addTime }
+									<Icon type="calendar" /> { props.addTime }
 								</span>
 								<span>
-									<Icon type="folder" /> { mylist.typeName }
+									<Icon type="folder" /> { props.typeName }
 								</span>
 								<span>
-									<Icon type="fire" /> { mylist.view_count }人
+									<Icon type="fire" /> { props.view_count }人
 								</span>
 							</div>
 
@@ -79,7 +87,9 @@ const Detailed = (props) => {
 					<Affix offsetTop={5}>
 						<div className="detailed-nav comm-box">
 							<div className="nav-title">文章目录</div>
-							<MarkNav className="article-menu" source={html} ordered={false} />
+							<div className="toc-list">
+  							{tocify && tocify.render()}
+							</div>
 						</div>
 					</Affix>
 				</Col>
@@ -90,12 +100,10 @@ const Detailed = (props) => {
 }
 
 Detailed.getInitialProps = async(context)=>{
-  console.log(context.query.id)
-  let id =context.query.id
+	let id =context.query.id
   const promise = new Promise((resolve)=>{
-    axios('http://localhost:7002/default/getArticleById/'+id).then(
+    axios(servicePath.getArticleById + id).then(
       (res)=>{
-        console.log(res.data.data[0])
         resolve(res.data.data[0])
       }
     )
