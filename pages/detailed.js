@@ -46,41 +46,10 @@ const Detailed = (props) => {
 	return (
 		<div>
 			<Head>
-				<title>博客详细页</title>
+				<title>{ mylist.title }</title>
 			</Head>
 			<Header />
 			<Row className="comm-main" type="flex" justify="center">
-				<Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14}>
-					<div>
-						<div className="bread-div">
-							<Breadcrumb>
-								<Breadcrumb.Item>
-									<a href="/">首页</a>
-								</Breadcrumb.Item>
-								<Breadcrumb.Item>视频列表</Breadcrumb.Item>
-								<Breadcrumb.Item>xxxx</Breadcrumb.Item>
-							</Breadcrumb>
-						</div>
-						<div>
-							<div className="detailed-title">{ mylist.title }</div>
-							<div className="list-icon center">
-								<span>
-									<Icon type="calendar" /> { mylist.addTime }
-								</span>
-								<span>
-									<Icon type="folder" /> { mylist.typeName }
-								</span>
-								<span>
-									<Icon type="fire" /> { mylist.view_count }人
-								</span>
-							</div>
-
-							<div className="detailed-content" dangerouslySetInnerHTML={{__html:html}}>
-							</div>
-						</div>
-					</div>
-				</Col>
-
 				<Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
 					<Author />
 					<Advert />
@@ -92,6 +61,36 @@ const Detailed = (props) => {
 							</div>
 						</div>
 					</Affix>
+				</Col>
+				<Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14}>
+					<div>
+						<div className="bread-div">
+							<Breadcrumb>
+								<Breadcrumb.Item>
+									<a href="/">首页</a>
+								</Breadcrumb.Item>
+								<Breadcrumb.Item>视频列表</Breadcrumb.Item>
+								<Breadcrumb.Item>{ mylist.title }</Breadcrumb.Item>
+							</Breadcrumb>
+						</div>
+						<div>
+							<div className="detailed-title">{ mylist.title }</div>
+							<div className="list-icon center">
+								<span>
+									<Icon type="calendar" /> 发表于 { mylist.addTime }
+								</span>
+								<span>
+									<Icon type="folder" /> 分类于 { mylist.typeName }
+								</span>
+								<span>
+									<Icon type="fire" /> { mylist.view_count }人
+								</span>
+							</div>
+
+							<div className="detailed-content" dangerouslySetInnerHTML={{__html:html}}>
+							</div>
+						</div>
+					</div>
 				</Col>
 			</Row>
 			<Footer />
