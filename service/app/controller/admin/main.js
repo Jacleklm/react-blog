@@ -6,7 +6,7 @@ class MainController extends Controller {
   // 首页的文章列表数据
   async index() {
     this.ctx.body = 'hi api';
-    console.log('index');
+    // console.log('index');
   }
   // 判断用户名密码是否正确
   async checkLogin() {
@@ -54,7 +54,7 @@ class MainController extends Controller {
 
     const result = await this.app.mysql.update('article', tmpArticle);
     const updateSuccess = result.affectedRows === 1;
-    console.log(updateSuccess);
+    // console.log(updateSuccess);
     this.ctx.body = {
       isScuccess: updateSuccess,
     };
@@ -64,7 +64,8 @@ class MainController extends Controller {
     const sql =
 			'SELECT article.id as id,' +
 			'article.title as title,' +
-			'article.introduce as introduce,' +
+      'article.introduce as introduce,' +
+      'article.view_count as view_count ,' +
 			"FROM_UNIXTIME(article.addTime,'%Y-%m-%d' ) as addTime," +
 			'type.typeName as typeName ' +
 			'FROM article LEFT JOIN type ON article.type_id = type.Id ' +
@@ -94,7 +95,6 @@ class MainController extends Controller {
 			'FROM article LEFT JOIN type ON article.type_id = type.Id ' +
 			'WHERE article.id=' +
       id;
-
     const result = await this.app.mysql.query(sql);
     this.ctx.body = { data: result };
   }
