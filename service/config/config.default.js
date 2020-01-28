@@ -49,7 +49,13 @@ module.exports = appInfo => {
     domainWhiteList: [ '*' ],
   };
   config.cors = {
-    origin: 'http://localhost:3000', // 只允许这个域进行访问接口, 可以是 'http://localhost:3000' 或 '*'
+    origin: 'http://localhost:3001', // 只允许这个域进行访问接口, 可以是 'http://localhost:3000' 或 '*'，只能是单个
+    credentials: true, // 允许Cook可以跨域
+    allowMethods: 'GET, HEAD, PUT, POST, DELETE, PATCH, OPTIONS',
+  };
+  // 一个设置白名单的插件，如果觉得不好可以不用。会覆盖 cors 配置项的配置
+  config.origin = {
+    whiteList: [ 'http://localhost:3000', 'http://localhost:3001' ],
     credentials: true, // 允许Cook可以跨域
     allowMethods: 'GET, HEAD, PUT, POST, DELETE, PATCH, OPTIONS',
   };
