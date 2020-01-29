@@ -47,6 +47,7 @@ const ArticleList = props => {
 					<Author />
 					<Advert />
 				</Col>
+				&nbsp;&nbsp;&nbsp;
 				<Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14}>
 					<div>
 						<List
