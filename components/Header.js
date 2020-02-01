@@ -4,19 +4,11 @@ import Router from 'next/router'
 import Link from 'next/link'
 import axios from 'axios'
 import servicePath from '../config/apiUrl'
-
 import { Row, Col, Menu, Icon } from 'antd'
+
 const Header = () => {
 	const [navArray, setNavArray] = useState([])
 	useEffect(() => {
-		// const fetchData = async () => {
-		// 	const result = await axios(servicePath.getTypeInfo).then(res => {
-		// 		setNavArray(res.data.data)
-		// 		return res.data.data
-		// 	})
-		// 	setNavArray(result)
-		// }
-		// fetchData()
 		fetchData()
 	}, [])
 

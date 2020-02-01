@@ -31,15 +31,6 @@ const Home = props => {
 		}
 	})
 	const [mylist, setMylist] = useState(props.data)
-	// useEffect(() => {
-	//   getArticle()
-	// })
-	// const getArticle = () => {
-	//   axios('http://localhost:7001/default/index')
-	//   .then((res) => {
-	//     console.log(res.data)
-	//   })
-	// }
 	return (
 		<div>
 			<Head>
@@ -92,7 +83,6 @@ Home.getInitialProps = async () => {
 	// Next的一个方法
 	const promise = new Promise(resolve => {
 		axios(servicePath.getArticleList).then(res => {
-			// console.log('远程获取数据结果:',res.data)
 			resolve(res.data)
 		})
 	})

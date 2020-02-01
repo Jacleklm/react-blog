@@ -9,6 +9,10 @@ class HomeController extends Controller {
     console.log(result);
     this.ctx.body = `我拿到数据库了吗：${result.title}`;
   }
+  async test() {
+    // 测试
+    this.ctx.body = { test: 666 };
+  }
   async getArticleList() {
     const sql =
       'SELECT article.id as id,' +
@@ -22,6 +26,7 @@ class HomeController extends Controller {
     const results = await this.app.mysql.query(sql);
     this.ctx.body = {
       data: results,
+      test: 'I am a test',
     };
   }
   async getArticleById() {
@@ -62,10 +67,6 @@ class HomeController extends Controller {
     const result = await this.app.mysql.query(sql);
     this.ctx.body = { data: result };
 
-  }
-  async test() {
-    // 获取用户表的数据
-    this.ctx.body = 'I am a test';
   }
 }
 

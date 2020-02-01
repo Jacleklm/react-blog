@@ -43,7 +43,6 @@ code {
 	color: #4f4f4f;
 	margin: 0px 3px;
 }
-
 .title-anchor {
 	color: #888 !important;
 	padding: 4px !important;
@@ -82,4 +81,7 @@ iframe {
 }
 .ant-anchor-wrapper {
 	padding: 5px !important;
+}
+.detailed-nav {
+	margin-top: .5rem;
 }

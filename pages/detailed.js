@@ -100,7 +100,7 @@ const Detailed = (props) => {
 }
 
 Detailed.getInitialProps = async(context)=>{
-	let id =context.query.id
+	let id = context.query.id
   const promise = new Promise((resolve)=>{
     axios(servicePath.getArticleById + id).then(
       (res)=>{
