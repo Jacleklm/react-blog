@@ -31,18 +31,18 @@ const Header = () => {
 	return (
 		<div className="header">
 			<Row type="flex" justify="center">
-				<Col xs={24} sm={24} md={10} lg={15} xl={12}>
+				<Col xs={24} sm={24} md={10} lg={15} xl={11}>
 					<Link href="/">
 						<span className="header-logo"><a>JacleKlm</a></span>
 					</Link>
 					<span className="header-txt">Focus on Front.</span>
 				</Col>
-				<Col className="memu-div" xs={0} sm={0} md={14} lg={10} xl={7}>
+				<Col className="memu-div" xs={0} sm={0} md={14} lg={10} xl={8}>
 					<Menu mode="horizontal" onClick={handleClick}>
-						<Menu.Item key="0">
+						{/*<Menu.Item key="0">
 							<Icon type="home" />
 							博客首页
-						</Menu.Item>
+							</Menu.Item>*/}
 						{navArray.map(item => {
 							return (
 								<Menu.Item key={item.id}>

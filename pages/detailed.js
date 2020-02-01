@@ -18,6 +18,7 @@ import  servicePath  from '../config/apiUrl'
 
 const Detailed = (props) => {
 	const [ mylist , setMylist ] = useState(props)
+	const [ typeId, setTypeId ] = useState('视频列表')
 
 	const tocify = new Tocify()
 	// marked相应配置
@@ -42,6 +43,11 @@ const Detailed = (props) => {
 	}); 
 	// 把文章内容用marked()进行渲染
 	let html = marked( mylist.article_content )
+
+	// // 由文章类别的id获取文章类别名
+	// const getTypeName = () => {
+	// 	axios()
+	// }
 
 	return (
 		<div>
@@ -70,7 +76,7 @@ const Detailed = (props) => {
 								<Breadcrumb.Item>
 									<a href="/">首页</a>
 								</Breadcrumb.Item>
-								<Breadcrumb.Item>视频列表</Breadcrumb.Item>
+								<Breadcrumb.Item>{typeId}</Breadcrumb.Item>
 								<Breadcrumb.Item>{ mylist.title }</Breadcrumb.Item>
 							</Breadcrumb>
 						</div>

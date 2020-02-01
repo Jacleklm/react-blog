@@ -31,9 +31,9 @@ const ArticleList = props => {
 		}
 	})
 
-	const [mylist, setMylist] = useState(props.data)
+	const [mylist, setMylist] = useState(props.data.reverse())
 	useEffect(() => {
-		setMylist(props.data)
+		setMylist(props.data.reverse())
 	})
 
 	return (
