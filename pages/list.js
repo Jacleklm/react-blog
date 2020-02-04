@@ -31,9 +31,9 @@ const ArticleList = props => {
 		}
 	})
 
-	const [mylist, setMylist] = useState(props.data.reverse())
+	const [mylist, setMylist] = useState(props.data)
 	useEffect(() => {
-		setMylist(props.data.reverse())
+		setMylist(props.data)
 	})
 
 	return (
@@ -57,7 +57,7 @@ const ArticleList = props => {
 										<Breadcrumb.Item>
 											<a href="/">首页</a>
 										</Breadcrumb.Item>
-										<Breadcrumb.Item>视频列表</Breadcrumb.Item>
+										<Breadcrumb.Item>{mylist[0].typeName}</Breadcrumb.Item>
 									</Breadcrumb>
 								</div>
 							}

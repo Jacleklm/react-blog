@@ -76,7 +76,7 @@ const Detailed = (props) => {
 								<Breadcrumb.Item>
 									<a href="/">首页</a>
 								</Breadcrumb.Item>
-								<Breadcrumb.Item>{typeId}</Breadcrumb.Item>
+								<Breadcrumb.Item>{ mylist.typeName }</Breadcrumb.Item>
 								<Breadcrumb.Item>{ mylist.title }</Breadcrumb.Item>
 							</Breadcrumb>
 						</div>
