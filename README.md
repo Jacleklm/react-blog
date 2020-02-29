@@ -1,5 +1,5 @@
 # react-blog
-一个基于React + Egg.js + Antd 的博客前后端项目。目前部署在 JacleKlm.com，欢迎参观
+一个基于React + Egg.js + Antd 的博客前后端项目。博客系统的后台管理系统在[admin](https://github.com/Jacleklm/admin),目前部署在 JacleKlm.com，欢迎参观
 
 ## 项目截图
 #### 博客首页和列表页（结构上是一样的）
