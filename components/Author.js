@@ -10,9 +10,17 @@ const Author = () => {
         <div className="author-introduction">
           专注于WEB前端开发
           <Divider>社交账号</Divider>
-          <Tooltip title="https://github.com/Jacleklm"><a href="https://github.com/Jacleklm" target="#"><Avatar size={28} icon="github" className="account"  /></a></Tooltip>
-          <Tooltip title="QQ: 1061161721"><Avatar size={28} icon="qq"  className="account" /></Tooltip>
-          <Tooltip title="wechat: JacleKlm"><Avatar size={28} icon="wechat"  className="account"  /></Tooltip>
+          <Tooltip title="https://github.com/Jacleklm">
+            <a href="https://github.com/Jacleklm" target="#">
+              <Avatar size={28} icon="github" className="account" />
+            </a>
+          </Tooltip>
+          <Tooltip title="QQ: 1061161721">
+            <Avatar size={28} icon="qq"  className="account" />
+          </Tooltip>
+          <Tooltip title="wechat: JacleKlm">
+            <Avatar size={28} icon="wechat"  className="account"  />
+          </Tooltip>
         </div>
       </div>
     )
