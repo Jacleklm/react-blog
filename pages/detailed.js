@@ -100,7 +100,7 @@ const Detailed = (props) => {
 					</div>
 				</Col>
 			</Row>
-			<Footer />
+			<Footer />  
 		</div>
 	)
 }
